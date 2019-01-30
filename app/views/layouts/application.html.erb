@@ -28,17 +28,21 @@
     <div class="container w-5">
       <%= yield %>
     </div>
-    <div id="map"></div>
+    <!-- <div id="map"></div> -->
+    <script src='https://darksky.net/map-embed/@precipitation_rate,1.301,103.798,11.js?embed=true&timeControl=false&fieldControl=false&defaultField=precipitation_rate&defaultUnits=_mmph'></script>
+
+
     <script>
       var map;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 1.28967, lng: 103.85007},
-          zoom: 11
+          zoom: 12
         });
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAESbPYIicRf0FJMY0lbz97ERep1ohBSe0&callback=initMap"
+    <script
+    src=<%= "https://maps.googleapis.com/maps/api/js?key=#{@api_key}&callback=initMap" %>
     async defer></script>
 
   </body>
